@@ -5,9 +5,7 @@ export const ApplicationViews = () => {
     return 
     <>
         <main>
-        <Route path="/login">
-            <Login />
-        </Route>
+        
         </main>
     </>
 }

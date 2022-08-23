@@ -1,7 +1,8 @@
 
-.builder {
+.builders {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
   }
   
@@ -10,4 +11,5 @@
       margin: 1em;
       padding: 1em;
       border: 1px solid goldenrod;
+        width: 300px;
   }

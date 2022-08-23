@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Pcbuilder } from './components/Pcbuilder';
 import './index.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Pcbuilder />
-  </React.StrictMode>,
-  document.getElementById('root')
+ReactDOM.render(
+    <React.StrictMode>
+        <Router>
+            <Pcbuilder />
+        </Router>
+    </React.StrictMode>,
+    document.getElementById('root')
 );

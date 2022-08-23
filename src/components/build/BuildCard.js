@@ -1,20 +1,25 @@
 import React from "react";
 import "./Build.css";
 
-export const BuildCard = (props) => (
-    <section className="build">
-        <h3 className="build_title">TEST Build Name</h3>
-        <div className="build_builder">I'm_Steve</div>
-        <div className="build_cpu">AMD 3200</div>
-        <div className="build_motherboard">ASUS XXX</div>
-        <div className="build_memory">Corsair 32GB DDR4</div>
-        <div className="build_storage">Seagate 1TB</div>
-        <div className="build_gpu">Nvidia RTX 3080 TI</div>
-        <div className="build_case">TEST CASE</div>
-        <div className="build_psu">Corsair RM850</div>
-        <div className="build_os">Microsoft Windows 10</div>
-        <div className="build_monitor">Samsung Odyssey G9</div>
-        <div className="build_price">$2000.00</div>
-        <div className="build_rating">4.5</div>
-    </section>
-)
+export const BuildCard = ({ build }) => {
+    return (
+        <div className="card">
+            <div className="card-content">
+                <picture><img src={build.img}/></picture>
+                <h3><span className="card-comptitle">{build.title}</span></h3>
+                <p>Builder: {build.builder}</p>
+                <p>CPU: {build.cpu}</p>
+                <p>Motherboard: {build.motherboard}</p>
+                <p>Memory: {build.memory}</p>
+                <p>Storage: {build.storage}</p>
+                <p>GPU: {build.gpu}</p>
+                <p>Case: {build.case}</p>
+                <p>PSU: {build.psu}</p>
+                <p>Operating System: {build.os}</p>
+                <p>Monitor: {build.monitor}</p>
+                <p>Price: {build.price}</p>
+                <p>Rating: {build.rating}</p>
+            </div>
+        </div>
+    );
+}

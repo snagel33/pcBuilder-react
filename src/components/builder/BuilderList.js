@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllBuilders, getBuilderById } from "../../modules/BuilderManager";
+import { deleteBuilder, getAllBuilders, getBuilderById } from "../../modules/BuilderManager";
 import { BuilderCard } from "./BuilderCard";
 
 export const BuilderList = () => {
@@ -15,12 +15,19 @@ export const BuilderList = () => {
     useEffect(() => {
         getBuilders();
         } , []);
+
+    const handleDeleteBuilder = (id) => {
+        deleteBuilder(id)
+            .then(builder => BuilderCard(builder))
+    }
         
     return (
         <div className="container-cards">
             {builders.map(builder => 
-                <BuilderCard key={builder.id} builder={builder} />
-            )}
+                <BuilderCard 
+                    key={builder.id} 
+                    builder={builder} 
+                    handleDeleteBuilder={handleDeleteBuilder}/>)}
         </div>
     );
 }

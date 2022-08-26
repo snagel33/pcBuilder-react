@@ -1,7 +1,7 @@
 import React from "react";
 import "./Build.css";
 
-export const BuildCard = ({ build }) => {
+export const BuildCard = ({ build, handleDeleteBuild }) => {
     return (
         <div className="card">
             <div className="card-content">
@@ -19,6 +19,7 @@ export const BuildCard = ({ build }) => {
                 <p>Monitor: {build.monitor}</p>
                 <p>Price: {build.price}</p>
                 <p>Rating: {build.rating}</p>
+                <button type="button" onClick={() => handleDeleteBuild(build.id)}>Delete</button>
             </div>
         </div>
     );

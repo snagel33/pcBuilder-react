@@ -6,6 +6,13 @@ export const getPartById = (partId) => {
 }
 
 export const getAllParts = () => {
-    return fetch(`${remoteURL}parts`)
+    return fetch(`${remoteURL}parts?_expand=partType`)
+    .then(result => result.json())
+}
+
+export const deletePart = (id) => {
+    return fetch(`${remoteURL}parts/${id}`, {
+        method: "DELETE"
+    })
     .then(result => result.json())
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllBuilds, getBuildById } from "../../modules/BuildManager";
+import { deleteBuild, getAllBuilds, getBuildById } from "../../modules/BuildManager";
 import { BuildCard } from "./BuildCard";
 
 export const BuildList = () => {
@@ -16,11 +16,18 @@ export const BuildList = () => {
         getBuilds();
         } , []);
 
+    const handleDeleteBuild = (id) => {
+        deleteBuild(id)
+            .then(() => getAllBuilds().then(setBuilds))
+    }
+
     return (
         <div className="container-cards">
             {builds.map(build => 
-                <BuildCard key={build.id} build={build} />
-            )}
+                <BuildCard 
+                    key={build.id} 
+                    build={build} 
+                    handleDeleteBuild={handleDeleteBuild}/>)}
         </div>
     );
 }

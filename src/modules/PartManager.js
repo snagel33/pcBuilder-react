@@ -6,7 +6,7 @@ export const getPartById = (partId) => {
 }
 
 export const getAllParts = () => {
-    return fetch(`${remoteURL}parts?_expand=partType`)
+    return fetch(`${remoteURL}parts`)
     .then(result => result.json())
 }
 

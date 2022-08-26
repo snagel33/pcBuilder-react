@@ -6,6 +6,7 @@ import { BuildList } from "./build/BuildList";
 import { BuilderCard } from "./builder/BuilderCard";
 import { BuilderList } from "./builder/BuilderList";
 import { PartCard } from "./part/PartCard";
+import { PartDetail } from "./part/PartDetail";
 import { PartList } from "./part/PartList";
 
 export const ApplicationViews = () => {
@@ -13,9 +14,13 @@ export const ApplicationViews = () => {
     <>
         <Routes>
             <Route exact path="/" element={<Home />} />
+            {}
             <Route path="/builds" element={<BuildList />} />
+            {}
             <Route path="/builders" element={<BuilderList />} />
-            <Route path="/parts" element={<PartList />} />
+            {}
+            <Route exact path="/parts" element={<PartList />} />
+            <Route path="/parts/:partId" element={<PartDetail />} />
         </Routes>
     </>
     )

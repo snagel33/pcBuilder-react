@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { deleteBuild, getAllBuilds, getBuildById } from "../../modules/BuildManager";
 import { BuildCard } from "./BuildCard";
 
 export const BuildList = () => {
 
     const [builds, setBuilds] = useState([]);
+    const navigate = useNavigate();
 
     const getBuilds = () => {
         return getAllBuilds().then(buildsFromAPI => {
@@ -22,6 +24,7 @@ export const BuildList = () => {
     }
 
     return (
+        <>
         <div className="container-cards">
             {builds.map(build => 
                 <BuildCard 
@@ -29,5 +32,6 @@ export const BuildList = () => {
                     build={build} 
                     handleDeleteBuild={handleDeleteBuild}/>)}
         </div>
+        </>
     );
 }

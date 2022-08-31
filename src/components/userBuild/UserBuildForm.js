@@ -65,22 +65,16 @@ export const UserBuildForm = () => {
     return (
         <>
         <form className='userBuildForm'>
+            <h2 className='userBuildForm__title'>Create a New Computer Build</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="cpu">CPU: </label>
-                    {/* <select
-                        className="form-control"
-                        id="cpu"
-                        value={userBuild.cpu}
-                        onChange={handleControlledInputChange}>
-                        <option value="">Select CPU</option>
-                    </select> */}
                     <select
-                        value={part.id}
+                        value={userBuild.cpu}
                         name="cpu"
                         id="cpu"
                         onChange={handleControlledInputChange}>
-                        <option value="0">Select CPU</option>
+                        <option value="">Select CPU</option>
                         {parts.map(part => (
                             <option key={part.id} value={part.id}>{part.name}</option>
                         ))}
@@ -89,98 +83,116 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="motherboard">Motherboard: </label>
                     <select
-                        className="form-control"
-                        id="motherboard"
                         value={userBuild.motherboard}
+                        name="motherboard"
+                        id="motherboard"
                         onChange={handleControlledInputChange}>
-                        <option value="">
-                            Select Motherboard
-                        </option>
+                        <option value="">Select Motherboard</option>
+                        {parts.map(part => (
+                            <option key={part.id} value={part.id}>{part.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="memory">Memory: </label>
                     <select
-                        className="form-control"
-                        id="memory"
                         value={userBuild.memory}
+                        name="memory"
+                        id="memory"
                         onChange={handleControlledInputChange}>
-                        <option value="">
-                            Select Memory
-                        </option>
+                        <option value="">Select Memory</option>
+                        {parts.map(part => (
+                            <option key={part.id} value={part.id}>{part.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="storage">Storage: </label>
                     <select
-                        className="form-control"
-                        id="storage"
                         value={userBuild.storage}
+                        name="storage"
+                        id="storage"
                         onChange={handleControlledInputChange}>
-                        <option value="">
-                            Select Storage
-                        </option>
+                        <option value="">Select Storage</option>
+                        {parts.map(part => (
+                            <option key={part.id} value={part.id}>{part.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="gpu">GPU: </label>
                     <select
-                        className="form-control"
-                        id="gpu"
                         value={userBuild.gpu}
+                        name="gpu"
+                        id="gpu"
                         onChange={handleControlledInputChange}>
-                        <option value="">
-                            Select GPU
-                        </option>
+                        <option value="">Select GPU</option>
+                        {parts.map(part => (    
+                            <option key={part.id} value={part.id}>{part.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="case">Case: </label>
                     <select
-                        className="form-control"
-                        id="case"
                         value={userBuild.case}
+                        name="case"
+                        id="case"
                         onChange={handleControlledInputChange}>
-                        <option value="">
-                            Select Case
-                        </option>
+                        <option value="">Select Case</option>
+                        {parts.map(part => (
+                            <option key={part.id} value={part.id}>{part.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="psu">PSU: </label>
                     <select
-                        className="form-control"
-                        id="psu"
                         value={userBuild.psu}
+                        name="psu"
+                        id="psu"
                         onChange={handleControlledInputChange}>
-                        <option value="">
-                            Select PSU
-                        </option>
+                        <option value="">Select PSU</option>
+                        {parts.map(part => (
+                            <option key={part.id} value={part.id}>{part.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="os">Operating System: </label>
                     <select
-                        className="form-control"
-                        id="os"
                         value={userBuild.os}
+                        name="os"
+                        id="os"
                         onChange={handleControlledInputChange}>
-                        <option value="">
-                            Select OS
-                        </option>   
+                        <option value="">Select OS</option>
+                        {parts.map(part => (
+                            <option key={part.id} value={part.id}>{part.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="monitor">Monitor: </label>
                     <select
-                        className="form-control"
-                        id="monitor"
                         value={userBuild.monitor}
+                        name="monitor"
+                        id="monitor"
                         onChange={handleControlledInputChange}>
-                        <option value="">
-                            Select Monitor
-                        </option>
+                        <option value="">Select Monitor</option>
+                        {parts.map(part => (
+                            <option key={part.id} value={part.id}>{part.name}</option>
+                        ))}
                     </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="img">Image Link: </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="img"
+                        value={userBuild.img}
+                        onChange={handleControlledInputChange}
+                    />
                 </div>
                 <button className="btn-saveUserBuild"
                         onClick={handleClickSaveUserBuild}>

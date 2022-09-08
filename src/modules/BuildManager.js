@@ -1,4 +1,4 @@
-const remoteURL = "http://localhost:8088/"
+const remoteURL = "http://localhost:8000/"
 
 export const getBuildById = (buildId) => {
     return fetch(`${remoteURL}builds/${buildId}`)

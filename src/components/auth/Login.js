@@ -6,7 +6,7 @@ export const Login = () => {
     const username = useRef()
     const password = useRef()
     const invalidDialog = useRef()
-    const navigate = useNavigate()
+    const history = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -26,7 +26,7 @@ export const Login = () => {
             .then(res => {
                 if ("valid" in res && res.valid && "token" in res) {
                     localStorage.setItem("lu_token", res.token)
-                    navigate.push("/")
+                    history('/')
                 }
                 else {
                     invalidDialog.current.showModal()

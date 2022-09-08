@@ -1,12 +1,25 @@
-const remoteURL = "http://localhost:8088/"
+const remoteURL = "http://localhost:8000/"
+
+// export const getAllParts = () => {
+//     return fetch("http://localhost:8000/parts", {
+//         headers: {
+//             "Authorization": `Token ${localStorage.getItem("lu_token")}`
+//         }
+//     })
+//     .then(response => response.json())
+// }
+
+export const getAllParts = () => {
+    return fetch(`${remoteURL}parts`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
+}
 
 export const getPartById = (partId) => {
     return fetch(`${remoteURL}parts/${partId}`)
-    .then(result => result.json())
-}
-
-export const getAllParts = () => {
-    return fetch(`${remoteURL}parts`)
     .then(result => result.json())
 }
 

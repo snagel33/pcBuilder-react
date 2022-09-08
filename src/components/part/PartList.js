@@ -8,13 +8,14 @@ export const PartList = () => {
     const [parts, setParts] = useState([]);
     const navigate = useNavigate();
 
-    const getParts = () => {
-        return getAllParts().then(partsFromAPI => {
-            setParts(partsFromAPI)
-        });
-    }
+    // const getParts = () => {
+    //     return getAllParts().then(partsFromAPI => {
+    //         setParts(partsFromAPI)
+    //     });
+    // }
+
     useEffect(() => {
-        getParts();
+        getAllParts().then(data => setParts(data))
     } , []);
     return (
         <>

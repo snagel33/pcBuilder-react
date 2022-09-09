@@ -1,14 +1,5 @@
 const remoteURL = "http://localhost:8000/"
 
-// export const getAllParts = () => {
-//     return fetch("http://localhost:8000/parts", {
-//         headers: {
-//             "Authorization": `Token ${localStorage.getItem("lu_token")}`
-//         }
-//     })
-//     .then(response => response.json())
-// }
-
 export const getAllParts = () => {
     return fetch(`${remoteURL}parts`, {
         headers: {
@@ -55,9 +46,4 @@ export const addPart = (newPart) => {
         body: JSON.stringify(newPart)
     })
     .then(response => response.json())
-}
-
-export const getAllPartTypes = () => {
-    return fetch(`${remoteURL}partType`)
-    .then(result => result.json())
 }

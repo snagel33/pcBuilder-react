@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { addPart, getAllPartTypes, getPartTypes } from "../../modules/PartManager";
+import { addPart } from "../../modules/PartManager";
+import { getAllPartTypes } from "../../modules/PartTypeManager";
 import './PartForm.css'
 
 export const PartForm = () => {
@@ -28,12 +29,8 @@ export const PartForm = () => {
     }
 
     useEffect(() => {
-        getAllPartTypes()
-            .then(partTypesFromAPI => {
-                setPartTypes(partTypesFromAPI)
-            }
-            );
-    } , []);
+        getAllPartTypes().then(data => setPartTypes(data))
+    }, []);
 
     const handleClickSavePart = (event) => {
         event.preventDefault()
@@ -56,18 +53,6 @@ export const PartForm = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="partType">Part Type: </label>
-                    {/* <select
-                        value={part.partTypeId}
-                        name="partTypeId"
-                        id="partTypeId"
-                        onChange={handleControlledInputChange}
-                        className="form-control">
-                        <option value="0">Select a part type</option>
-                        {partTypes.map(partType => (
-                            <option key={partType.id} value={partType.id}>{partType.name}
-                            </option>
-                        ))}
-                    </select> */}
                     <select
                         value={part.partTypeId}
                         name="partTypeId"
@@ -76,10 +61,11 @@ export const PartForm = () => {
                         className="form-control">
                         <option value="0">Select a part type</option>
                         {partTypes.map(partType => (
-                            <option key={partType.id} value={partType.id}>{partType.name}
+                            <option key={partType.id} value={partType.id}>{partType.label}
                             </option>
                         ))}
                     </select>
+
                 </div>
                 <div className="form-group">
                     <label htmlFor="maker">Maker: </label>

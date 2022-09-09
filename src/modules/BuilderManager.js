@@ -1,4 +1,4 @@
-const remoteURL = "http://localhost:8088/"
+const remoteURL = "http://localhost:8000/"
 
 export const getBuilderById = (builderId) => {
     return fetch(`${remoteURL}builders/${builderId}`)
@@ -6,8 +6,12 @@ export const getBuilderById = (builderId) => {
 }
 
 export const getAllBuilders = () => {
-    return fetch(`${remoteURL}builders`)
-    .then(result => result.json())
+    return fetch(`${remoteURL}builders`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
 }
 
 export const deleteBuilder = (id) => {

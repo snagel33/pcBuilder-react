@@ -1,6 +1,9 @@
 import React from "react";
 import "./Part.css";
 import { Link } from "react-router-dom";
+import { NavBar } from "../nav/NavBar";
+
+
 
 export const PartCard = ({ part }) => (
     <div className="card">

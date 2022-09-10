@@ -59,7 +59,7 @@ export const Pcbuilder = () => {
                 {}
                 <Route exact path="/parts" element={<PartList />} />
                 <Route path="/parts/:partId" element={<PartDetail />} />
-                <Route path="/parts/create" element={<PartForm />} />
+                <Route exact path="/parts/create" element={<PartForm />} />
                 {}
                 <Route path="/userBuilds" element={<UserBuildList />} />
                 <Route path="/userBuilds/create" element={<UserBuildForm />} />

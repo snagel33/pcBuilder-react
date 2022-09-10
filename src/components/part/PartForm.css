@@ -12,6 +12,7 @@ fieldset input, fieldset button, fieldset select{
     box-sizing: border-box;
     padding: .2em .4em;
     margin: .2em 0;
+    border: 1px solid #ccc;
     outline: none;
     box-shadow: none;
 }
@@ -60,8 +61,9 @@ fieldset .formgrid {
 
 fieldset input, fieldset button, fieldset select {
     grid-column: 2 /4;
-    width: 1000px;
-    margin: 0
+    width: 94%;
+    height: 2.5em;
+    margin: 0;
 }
 
 fieldset .alignRight {
@@ -73,4 +75,8 @@ h2 {
     font-size: 2em;
     font-weight: bold;
     color: #337ab7;
+}
+
+div {
+    padding-top: 2%;
 }

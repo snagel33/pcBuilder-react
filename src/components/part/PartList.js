@@ -17,13 +17,14 @@ export const PartList = () => {
     useEffect(() => {
         getAllParts().then(data => setParts(data))
     } , []);
+
     return (
         <>
         <section className="section-content">
             <button type="button"
                 className="btn-parts"
                 onClick={() => navigate("/parts/create")}>
-                Add Part
+                Add New Part
             </button>
         </section>
         <div className="container-cards">

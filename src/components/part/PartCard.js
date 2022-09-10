@@ -11,10 +11,10 @@ export const PartCard = ({ part }) => (
             <picture><img src={part.img}/></picture>
             {/* <h3>{part.partTypeId}</h3> */}
             <h3><span className="card-partname">{part.name}</span></h3>
-            <p>Component Type: {part.partTypeId}</p>
-            <p>Manufacturer: {part.maker}</p>
-            <p>Description: {part.description}</p>
-            <p>Price: {part.price}</p>
+            <p><b>Component Type:</b> {part.partType_id}</p>
+            <p><b>Manufacturer:</b> {part.maker}</p>
+            <p><b>Description:</b> {part.description}</p>
+            <p><b>Price:</b> ${part.price}</p>
             <Link to={`/parts/${part.id}`}>
                 <button>Details</button>
             </Link>

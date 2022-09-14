@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { addPart, createPart, getPartTypes } from "../../modules/PartManager";
 import { getAllPartTypes } from "../../modules/PartTypeManager";
+import { NavBar } from "../nav/NavBar";
 import './PartForm.css'
 
 export const PartForm = () => {
@@ -32,6 +33,10 @@ export const PartForm = () => {
     };
 
     return (
+        <>
+        <section className="navBar">
+            <NavBar />
+        </section>
         <form className="partForm">
             <h2 className="partForm__title">Create New Part</h2>
             <fieldset>
@@ -91,5 +96,6 @@ export const PartForm = () => {
                 }}
                 className="btn btn-primary">Create</button>
         </form>
+        </>
     );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { deleteBuilder, getAllBuilders, getBuilderById } from "../../modules/BuilderManager";
 import { BuilderCard } from "./BuilderCard";
+import { NavBar } from "../nav/NavBar";
 
 export const BuilderList = () => {
     
@@ -22,6 +23,10 @@ export const BuilderList = () => {
     }
         
     return (
+        <>
+        <section className="navBar">
+            <NavBar />
+        </section>
         <div className="container-cards">
             {builders.map(builder => 
                 <BuilderCard 
@@ -29,5 +34,6 @@ export const BuilderList = () => {
                     builder={builder} 
                     handleDeleteBuilder={handleDeleteBuilder}/>)}
         </div>
+        </>
     );
 }

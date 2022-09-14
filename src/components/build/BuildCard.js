@@ -17,7 +17,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
                 <p>PSU: {build.psu}</p>
                 <p>Operating System: {build.os}</p>
                 <p>Monitor: {build.monitor}</p>
-                <p>Price: {build.price}</p>
+                <p>Price: ${build.price}.00</p>
                 <p>Rating: {build.rating}</p>
                 <button type="button" onClick={() => handleDeleteBuild(build.id)}>Delete</button>
             </div>

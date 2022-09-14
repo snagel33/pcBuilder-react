@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addUserBuild } from '../../modules/UserBuildManager';
+import { addBuild } from '../../modules/BuildManager';
 import { getAllParts, getPartByPartTypeId } from '../../modules/PartManager';
-import './UserBuildForm.css'
+import './BuildForm.css'
 import { PartCard } from '../part/PartCard';
+import { NavBar } from '../nav/NavBar';
 
-export const UserBuildForm = () => {
-    const [userBuild, setUserBuild] = useState({
+export const BuildForm = () => {
+    const [build, setBuild] = useState({
         cpu: "",
         motherboard: "",
         memory: "",
@@ -23,13 +24,13 @@ export const UserBuildForm = () => {
     const [part, setPart] = useState([]);
 
     const handleControlledInputChange= (event) => {
-        const newUserBuild = { ...userBuild };
+        const newBuild = { ...build };
         let selectedVal = event.target.value;
         if (event.target.id.includes("Id")) {
             selectedVal = parseInt(selectedVal);
         }
-        newUserBuild[event.target.id] = selectedVal;
-        setUserBuild(newUserBuild);
+        newBuild[event.target.id] = selectedVal;
+        setBuild(newBuild);
     }
     
     useEffect(() => {
@@ -52,9 +53,9 @@ export const UserBuildForm = () => {
     const handleClickSaveUserBuild = (event) => {
         event.preventDefault();
         setIsLoading(true);
-        addUserBuild(userBuild)
+        addBuild(build)
             .then(() => {
-                navigate("/userBuilds")
+                navigate("/builds")
             }).catch(() => {
                 alert("Error: Could not add user build");
             }).finally(() => {
@@ -64,13 +65,16 @@ export const UserBuildForm = () => {
     }
     return (
         <>
+        <section className="navBar">
+            <NavBar />
+        </section>
         <form className='userBuildForm'>
             <h2 className='userBuildForm__title'>Create a New Computer Build</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="cpu">CPU: </label>
                     <select
-                        value={userBuild.cpu}
+                        value={build.cpu}
                         name="cpu"
                         id="cpu"
                         onChange={handleControlledInputChange}>
@@ -83,7 +87,7 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="motherboard">Motherboard: </label>
                     <select
-                        value={userBuild.motherboard}
+                        value={build.motherboard}
                         name="motherboard"
                         id="motherboard"
                         onChange={handleControlledInputChange}>
@@ -96,7 +100,7 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="memory">Memory: </label>
                     <select
-                        value={userBuild.memory}
+                        value={build.memory}
                         name="memory"
                         id="memory"
                         onChange={handleControlledInputChange}>
@@ -109,7 +113,7 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="storage">Storage: </label>
                     <select
-                        value={userBuild.storage}
+                        value={build.storage}
                         name="storage"
                         id="storage"
                         onChange={handleControlledInputChange}>
@@ -122,7 +126,7 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="gpu">GPU: </label>
                     <select
-                        value={userBuild.gpu}
+                        value={build.gpu}
                         name="gpu"
                         id="gpu"
                         onChange={handleControlledInputChange}>
@@ -135,7 +139,7 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="case">Case: </label>
                     <select
-                        value={userBuild.case}
+                        value={build.case}
                         name="case"
                         id="case"
                         onChange={handleControlledInputChange}>
@@ -148,7 +152,7 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="psu">PSU: </label>
                     <select
-                        value={userBuild.psu}
+                        value={build.psu}
                         name="psu"
                         id="psu"
                         onChange={handleControlledInputChange}>
@@ -161,7 +165,7 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="os">Operating System: </label>
                     <select
-                        value={userBuild.os}
+                        value={build.os}
                         name="os"
                         id="os"
                         onChange={handleControlledInputChange}>
@@ -174,7 +178,7 @@ export const UserBuildForm = () => {
                 <div className="form-group">
                     <label htmlFor="monitor">Monitor: </label>
                     <select
-                        value={userBuild.monitor}
+                        value={build.monitor}
                         name="monitor"
                         id="monitor"
                         onChange={handleControlledInputChange}>
@@ -190,7 +194,7 @@ export const UserBuildForm = () => {
                         type="text"
                         className="form-control"
                         id="img"
-                        value={userBuild.img}
+                        value={build.img}
                         onChange={handleControlledInputChange}
                     />
                 </div>

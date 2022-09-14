@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllParts, getPartById } from "../../modules/PartManager";
 import { PartCard } from "./PartCard";
+import { NavBar } from "../nav/NavBar";
 import './PartList.css';
 
 export const PartList = () => {
@@ -20,6 +21,9 @@ export const PartList = () => {
 
     return (
         <>
+        <section className="navBar">
+            <NavBar />
+        </section>
         <section className="section-content">
             <button type="button"
                 className="btn-parts"

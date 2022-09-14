@@ -20,3 +20,14 @@ export const deleteBuild = (id) => {
     })
     .then(result => result.json())
 }
+
+export const addBuild = (build) => {
+    return fetch(`${remoteURL}builds`, {
+        method: "POST",
+        headers: {
+            Authorization: `Token ${localStorage.getItem("lu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(build)
+    }).then(response => response.json())
+}

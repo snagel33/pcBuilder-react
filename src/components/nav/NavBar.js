@@ -14,11 +14,11 @@ export const NavBar = () => {
             <li className="navbar_item">
                 <Link className="navbar_link" to="/parts">Parts</Link>
             </li>
-            <li className="navbar_item">
+            {/* <li className="navbar_item">
                 <Link className="navbar_link" to="/userBuilds">Build a PC</Link>
-            </li>
+            </li> */}
             <li className="navbar_item">
-                <Link className="navbar_link" to="/builders">Builders</Link>
+                <Link className="navbar_link" to="/builders">Profile</Link>
             </li>
         </ul>
     );

@@ -10,10 +10,10 @@ import { BuildList } from "./build/BuildList";
 import { BuilderList } from "./builder/BuilderList";
 import { PartDetail } from "./part/PartDetail";
 import { PartList } from "./part/PartList";
-import { UserBuildForm } from "./userBuild/UserBuildForm";
 import { UserBuildList } from "./userBuild/UserBuildList";
 import { PartForm } from "./part/PartForm";
-
+import { PartEditForm } from "./part/PartEditForm";
+import { BuildForm } from "./build/BuildForm";
 
 export const Pcbuilder = () => {
     // <>
@@ -54,15 +54,17 @@ export const Pcbuilder = () => {
                 <Route exact path="/" element={<Home />} />
                 {}
                 <Route path="/builds" element={<BuildList />} />
+                <Route path="/builds/create" element={<BuildForm />} />
                 {}
                 <Route path="/builders" element={<BuilderList />} />
                 {}
                 <Route exact path="/parts" element={<PartList />} />
                 <Route path="/parts/:partId" element={<PartDetail />} />
                 <Route exact path="/parts/create" element={<PartForm />} />
+                <Route path="/parts/:partId/edit" element={<PartEditForm />} />
                 {}
-                <Route path="/userBuilds" element={<UserBuildList />} />
-                <Route path="/userBuilds/create" element={<UserBuildForm />} />
+                {/* <Route path="/userBuilds" element={<UserBuildList />} /> */}
+                {/* <Route path="/userBuilds/create" element={<UserBuildForm />} /> */}
             </Routes>
         </>
     )

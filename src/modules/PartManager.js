@@ -10,43 +10,22 @@ export const getAllParts = () => {
 }
 
 export const getPartById = (partId) => {
-    return fetch(`${remoteURL}parts/${partId}`)
-    .then(result => result.json())
+    return fetch(`${remoteURL}parts/${partId}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
 }
-
-// export const deletePart = (id) => {
-//     return fetch(`${remoteURL}parts/${id}`, {
-//         method: "DELETE"
-//     })
-//     .then(result => result.json())
-// }
-
-// export const addBuild = (newBuild) => {
-//     return fetch(`${remoteURL}parts`, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(newBuild)
-//     })
-//     .then(response => response.json())
-// }
 
 export const getPartByPartTypeId = (partType_id) => {
-    return fetch(`${remoteURL}parts?partType_id=${partType_id}`)
-    .then(result => result.json())
+    return fetch(`${remoteURL}parts?partType_id=${partType_id}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
 }
-
-// export const addPart = (newPart) => {
-//     return fetch(`${remoteURL}parts`, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(newPart)
-//     })
-//     .then(response => response.json())
-// }
 
 export const createPart = (part) => {
     return fetch(`${remoteURL}parts`, {
@@ -66,4 +45,15 @@ export const getPartTypes = () => {
         }
     })
         .then(response => response.json())
+}
+
+export const updatePart = (editedPart) => {
+    return fetch(`${remoteURL}parts/${editedPart.id}`, {
+        method: "PUT",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedPart)
+    })
 }

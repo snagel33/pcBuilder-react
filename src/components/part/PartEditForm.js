@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getPartById, getPartTypes, updatePart } from "../../modules/PartManager";
-
+import { NavBar } from "../nav/NavBar";
 
 
 export const PartEditForm = () => {
@@ -60,6 +60,9 @@ export const PartEditForm = () => {
 
     return (
         <>
+            <section className="navBar">
+                <NavBar />
+            </section>
             <form>
                 <fieldset>
                     <div className="form-group">

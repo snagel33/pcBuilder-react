@@ -14,6 +14,7 @@ import { UserBuildList } from "./userBuild/UserBuildList";
 import { PartForm } from "./part/PartForm";
 import { PartEditForm } from "./part/PartEditForm";
 import { BuildForm } from "./build/BuildForm";
+import { BuilderEditForm } from "./builder/BuilderEditForm";
 
 export const Pcbuilder = () => {
     // <>
@@ -57,6 +58,7 @@ export const Pcbuilder = () => {
                 <Route path="/builds/create" element={<BuildForm />} />
                 {}
                 <Route path="/builders" element={<BuilderList />} />
+                <Route path="/builders/:builderId/edit" element={<BuilderEditForm />} />
                 {}
                 <Route exact path="/parts" element={<PartList />} />
                 <Route path="/parts/:partId" element={<PartDetail />} />

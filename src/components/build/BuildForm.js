@@ -8,15 +8,17 @@ import { NavBar } from '../nav/NavBar';
 
 export const BuildForm = () => {
     const [build, setBuild] = useState({
-        cpu: "",
-        motherboard: "",
-        memory: "",
-        storage: "",
-        gpu: "",
-        case: "",
-        psu: "",
-        os: "",
-        monitor: "",
+        title: "",
+        cpuId: 0,
+        motherboardId: 0,
+        memoryId: 0,
+        storageId: 0,
+        gpuId: 0,
+        caseId: 0,
+        psuId: 0,
+        osId: 0,
+        monitorId: 0,
+        img: "",
     });
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
@@ -71,12 +73,16 @@ export const BuildForm = () => {
         <form className='userBuildForm'>
             <h2 className='userBuildForm__title'>Create a New Computer Build</h2>
             <fieldset>
+                <div className='form-group'>
+                    <label htmlFor='title'>Build Title: </label>
+                    <input type='text' id='title' onChange={handleControlledInputChange} required autoFocus className='form-control' placeholder='Build Title' value={build.title} />
+                </div>
                 <div className="form-group">
                     <label htmlFor="cpu">CPU: </label>
                     <select
                         value={build.cpu}
                         name="cpu"
-                        id="cpu"
+                        id="cpuId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select CPU</option>
                         {parts.map(part => (
@@ -89,7 +95,7 @@ export const BuildForm = () => {
                     <select
                         value={build.motherboard}
                         name="motherboard"
-                        id="motherboard"
+                        id="motherboardId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select Motherboard</option>
                         {parts.map(part => (
@@ -102,7 +108,7 @@ export const BuildForm = () => {
                     <select
                         value={build.memory}
                         name="memory"
-                        id="memory"
+                        id="memoryId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select Memory</option>
                         {parts.map(part => (
@@ -115,7 +121,7 @@ export const BuildForm = () => {
                     <select
                         value={build.storage}
                         name="storage"
-                        id="storage"
+                        id="storageId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select Storage</option>
                         {parts.map(part => (
@@ -128,7 +134,7 @@ export const BuildForm = () => {
                     <select
                         value={build.gpu}
                         name="gpu"
-                        id="gpu"
+                        id="gpuId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select GPU</option>
                         {parts.map(part => (    
@@ -141,7 +147,7 @@ export const BuildForm = () => {
                     <select
                         value={build.case}
                         name="case"
-                        id="case"
+                        id="caseId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select Case</option>
                         {parts.map(part => (
@@ -154,7 +160,7 @@ export const BuildForm = () => {
                     <select
                         value={build.psu}
                         name="psu"
-                        id="psu"
+                        id="psuId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select PSU</option>
                         {parts.map(part => (
@@ -167,7 +173,7 @@ export const BuildForm = () => {
                     <select
                         value={build.os}
                         name="os"
-                        id="os"
+                        id="osId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select OS</option>
                         {parts.map(part => (
@@ -180,7 +186,7 @@ export const BuildForm = () => {
                     <select
                         value={build.monitor}
                         name="monitor"
-                        id="monitor"
+                        id="monitorId"
                         onChange={handleControlledInputChange}>
                         <option value="">Select Monitor</option>
                         {parts.map(part => (

@@ -1,17 +1,11 @@
-.navbar {
+.navbar-whole {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5em;
-    background-color: #3f83e1;
-    border-bottom: 1px solid #e7e7e7;
-    border-radius: 0;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-    padding: 0;
-    }
+    background-color: #0062ff;
+    height: 35px;
+    margin: 0;
+}
 
-.navbar_item {
+.navbar__links {
     display: flex;
     align-items: center;
     padding: 0.5em;
@@ -20,4 +14,8 @@
     list-style-type: none;
     color: #e7e7e7;
     text-decoration: none;
+    }
+
+.navbar_item {
+    padding: 0 0.5em;
     }

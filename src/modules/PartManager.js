@@ -57,3 +57,12 @@ export const updatePart = (editedPart) => {
         body: JSON.stringify(editedPart)
     })
 }
+
+export const deletePart = (id) => {
+    return fetch(`${remoteURL}parts/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+}

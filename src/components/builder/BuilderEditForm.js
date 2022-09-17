@@ -15,6 +15,7 @@ export const BuilderEditForm = () => {
         userId: 0,
         bio: "",
         img: "",
+        userName: "",
     });
 
     const handleFieldChange = (event) => {
@@ -76,6 +77,15 @@ export const BuilderEditForm = () => {
                             value={builder.img}
                         />
                         <label htmlFor="img">Image</label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            onChange={handleFieldChange}
+                            id="userName"
+                            value={builder.userName}
+                        />
+                        <label htmlFor="userName">User Name</label>
                     </div>
                     <div className="alignRight">
                         <button

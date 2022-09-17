@@ -19,6 +19,8 @@ export const BuildForm = () => {
         osId: 0,
         monitorId: 0,
         img: "",
+        price: 0,
+        rating: 0,
     });
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();

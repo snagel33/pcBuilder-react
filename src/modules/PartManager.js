@@ -18,8 +18,8 @@ export const getPartById = (partId) => {
         .then(response => response.json())
 }
 
-export const getPartByPartTypeId = (partType_id) => {
-    return fetch(`${remoteURL}parts?partType_id=${partType_id}`, {
+export const getPartByPartTypeId = (partTypeId) => {
+    return fetch(`${remoteURL}parts?partType_id=${partTypeId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }

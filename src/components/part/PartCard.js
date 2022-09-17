@@ -13,10 +13,7 @@ export const PartCard = ({ part }) => {
     const delPart = (id) => {
         deletePart(id)
             .then(() => history("/parts"))
-    }
-
-
-        
+    }        
 
     return (
         <>

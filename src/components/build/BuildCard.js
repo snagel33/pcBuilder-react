@@ -106,6 +106,9 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
             }
         })
     }, [])
+
+    // this will add the price of parts in the build to the total price
+    const totalPrice = cpu.price + motherboard.price + memory.price + storage.price + gpu.price + pcCase.price + psu.price + opSys.price + monitor.price
                 
 
     if (cpu) {
@@ -116,18 +119,18 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
                 <div className="card-content">
                     <picture><img src={build.img}/></picture>
                     <h3><span className="card-comptitle">{build.title}</span></h3>
-                    <p>Builder: {build.builder_id}</p>
-                    <p>CPU: {cpu.name}</p>
-                    <p>Motherboard: {motherboard.name}</p>
-                    <p>Memory: {memory.name}</p>
-                    <p>Storage: {storage.name}</p>
-                    <p>GPU: {gpu.name}</p>
-                    <p>Case: {pcCase.name}</p>
-                    <p>PSU: {psu.name}</p>
-                    <p>Operating System: {opSys.name}</p>
-                    <p>Monitor: {monitor.name}</p>
-                    <p>Price: ${build.price}.00</p>
-                    <p>Rating: {build.rating}</p>
+                    <p><b>Builder: </b>{build.builder_id}</p>
+                    <p><b>CPU: </b>{cpu.name}</p>
+                    <p><b>Motherboard: </b>{motherboard.name}</p>
+                    <p><b>Memory: </b>{memory.name}</p>
+                    <p><b>Storage: </b>{storage.name}</p>
+                    <p><b>GPU: </b>{gpu.name}</p>
+                    <p><b>Case: </b>{pcCase.name}</p>
+                    <p><b>PSU: </b>{psu.name}</p>
+                    <p><b>Operating System: </b>{opSys.name}</p>
+                    <p><b>Monitor: </b>{monitor.name}</p>
+                    <p><b>Price: </b>${totalPrice}.00</p>
+                    {/* <p>Rating: {build.rating}</p> */}
                     <button type="button" onClick={() => handleDeleteBuild(build.id)}>Delete</button>
                 </div>
             </div>

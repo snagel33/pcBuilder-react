@@ -8,14 +8,24 @@ import './PartList.css';
 export const PartList = () => {
     const [parts, setParts] = useState([]);
     const navigate = useNavigate();
+    const [ reset, setReset ] = useState(false);
     const [ filterPartTypeId, setFilterPartTypeId ] = useState(0);
     const [ partTypes, setPartTypes ] = useState([]);
+    const [ partType, setPartType ] = useState({});
 
     // const getParts = () => {
     //     return getAllParts().then(partsFromAPI => {
     //         setParts(partsFromAPI)
     //     });
     // }
+
+    const loadParts = () => {
+        getAllParts().then(data => setParts(data))
+    }
+
+    useEffect(() => {
+        loadParts();
+    }, [reset]);
 
     useEffect(() => {
         getAllParts().then(data => setParts(data))
@@ -25,11 +35,10 @@ export const PartList = () => {
         getPartTypes().then(data => setPartTypes(data))
     } , []);
 
-    //this will filter parts by partType
+    // this will filter parts by partType
     const handleFilter = (id) => {
-        if (filterPartTypeId !== 0) {
-            getPartByPartTypeId(id).then(data => setParts(data))
-        }
+        getPartByPartTypeId(id).then(data => setParts(data))
+        console.log(id)
     }
 
     const handleChange = (event) => {
@@ -37,8 +46,22 @@ export const PartList = () => {
         const value = event.target.value;
         if (event.target.id === "partType") {
             setFilterPartTypeId(parseInt(value));
+            console.log("partType", value);
         }
     }
+
+    const [sortedParts, setSortedParts] = useState([]);
+
+    useEffect(() => {
+        const tempParts = parts.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : -1);
+        setSortedParts(tempParts);
+    }, [parts]);
+
+    // this will populate the filtered view with the parts that match the partType
+    const filteredParts = parts.filter(part => part.partType_id === filterPartTypeId);
+
+    const cpuParts = sortedParts.filter(part => part.partType_id === 1);
+    const motherboardParts = sortedParts.filter(part => part.partType_id === 2);
 
     return (
         <>
@@ -46,24 +69,33 @@ export const PartList = () => {
             <NavBar />
         </section>
         <section className="section-content">
-            <div className="filter">
-                <select id="partType" value={filterPartTypeId} onChange={handleChange}>
-                    <option value="">Select a Part Type</option>
-                    {partTypes.map(partType => <option key={partType.id} value={partType.id}>{partType.label}</option>)}
-                </select>
-                <button onClick={() => {handleFilter(parseInt(filterPartTypeId))}}>Filter</button>
-            </div>
+            {/* <fieldset className="partFilter"> */}
+                <div className="formgrid">
+                    <label htmlFor="partType">Filter by Part Type: </label>
+                    <select name="partType" id="partType" className="form_input" onChange={handleChange}>
+                        <option value="">Select a Part Type</option>
+                        {partTypes.map(partType => <option key={partType.id} value={partType.id}>{partType.label}</option>)}
+                    </select>
+                </div>
+            {/* </fieldset> */}
             <button type="button"
                 className="btn-parts"
                 onClick={() => navigate("/parts/create")}>
                 Add New Part
             </button>
         </section>
-        <div className="container-cards">
-            {parts.map(part => 
-                <PartCard key={part.id} part={part} />
-            )}
-        </div>
+        <section className="filtered_view">
+            <h2>FILTER VIEW (PLACEHOLDER)</h2>
+            <div className="parts">
+                {filteredParts.map(part => <PartCard key={part.id} part={part} setReset={setReset} />)}
+            </div>
+        </section>
+        <section className="all_parts">
+            <h2>ALL PARTS (PLACEHOLDER)</h2>
+            <div className="parts">
+                {parts.map(part => <PartCard key={part.id} part={part} />)}
+            </div>
+        </section>
         </>
     );
 }

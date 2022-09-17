@@ -1,3 +1,4 @@
+import { getSuggestedQuery } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getBuilderById, updateBuilder } from "../../modules/BuilderManager";
@@ -8,7 +9,7 @@ export const BuilderEditForm = () => {
     const history = useNavigate();
     const { builderId } = useParams();
     const [isLoading, setIsLoading] = useState(false);
-    const [users, setUsers] = useState([]);
+    const [user, setUser] = useState([]);
 
     const [builder, setBuilder] = useState({
         id: 0,
@@ -16,6 +17,7 @@ export const BuilderEditForm = () => {
         bio: "",
         img: "",
         userName: "",
+        email: "",
     });
 
     const handleFieldChange = (event) => {
@@ -86,6 +88,15 @@ export const BuilderEditForm = () => {
                             value={builder.userName}
                         />
                         <label htmlFor="userName">User Name</label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            onChange={handleFieldChange}
+                            id="email"
+                            value={user.email}
+                        />
+                        <label htmlFor="email">Email</label>
                     </div>
                     <div className="alignRight">
                         <button

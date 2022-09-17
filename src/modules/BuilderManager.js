@@ -1,7 +1,7 @@
 const remoteURL = "http://localhost:8000/"
 
-export const getBuilderById = (builderId) => {
-    return fetch(`${remoteURL}builders/${builderId}`, {
+export const getBuilderById = (id) => {
+    return fetch(`${remoteURL}builders/${id}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("lu_token")}`
         }

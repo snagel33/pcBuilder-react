@@ -38,7 +38,7 @@ export const Register = () => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("lu_token", res.token)
-                        navigate.push("/")
+                        navigate("/")
                     }
                 })
         } else {
@@ -63,6 +63,10 @@ export const Register = () => {
                 <fieldset>
                     <label htmlFor="lastName"> Last Name </label>
                     <input ref={lastName} type="text" name="lastName" className="form-control" placeholder="Last name" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="inputEmail"> Email address </label>
+                    <input ref={email} type="email" name="email" className="form-control" placeholder="Email address" required />
                 </fieldset>
                 <fieldset>
                     <label htmlFor="inputUsername">Username</label>

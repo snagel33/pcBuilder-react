@@ -13,18 +13,9 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     const [opSys, setOpSys] = useState({});
     const [monitor, setMonitor] = useState({});
 
-    // useEffect(() => {
-    //     console.log(build)
-    // }, [])
-
-    // useEffect(() => {
-    //     (build.parts).map(b => {
-    //         if (build.id === (b.id)) {
-    //             console.log("result", b)
-    //             setThisBuild(b)
-    //         }
-    //     })
-    // }, [])
+    useEffect(() => {
+        console.log(build)
+    }, [build])
 
     useEffect(() => {
         (build.parts).map(b => {

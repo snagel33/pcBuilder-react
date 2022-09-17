@@ -36,7 +36,7 @@ export const BuildList = () => {
                 Create New Build
             </button>
         </section>
-        <div className="container-cards">
+        <div className="build-container-cards">
             {builds.map(build => 
                 <BuildCard 
                     key={build.id} 

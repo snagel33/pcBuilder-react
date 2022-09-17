@@ -18,10 +18,10 @@ import { BuilderEditForm } from "./builder/BuilderEditForm";
 import { PrivateRoutes } from "./auth/PrivateRoute";
 
 export const Pcbuilder = () => {
-    const [ token, setTokenState ] = useState(localStorage.getItem("token"));
+    const [ token, setTokenState ] = useState(localStorage.getItem("lu_token"));
 
     const setToken = (newToken) => {
-        localStorage.setItem("token", newToken);
+        localStorage.setItem("lu_token", newToken);
         setTokenState(newToken);
     }
 

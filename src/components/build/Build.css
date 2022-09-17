@@ -3,6 +3,13 @@ img {
   width: 100px;
 }
 
+.build-container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
 .card {
   /* Add shadows to create the "card" effect */
   display: flex;

@@ -9,6 +9,33 @@
       flex-basis: 28%;
       margin: 1em;
       padding: 1em;
-      /* border: 1px solid goldenrod; */
         width: 300px;
+  }
+
+  .part-image {
+      max-width: 200px;
+      min-height: 50px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      border: 1px solid rgb(0, 94, 255);
+      background-color: #ffffff;
+      margin-bottom: 5%;
+  }
+
+  .card-content {
+      margin: 0;
+      padding-left: 5%;
+      padding-right: 5%;
+  }
+
+  .part-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .part-button {
+    margin-bottom: 0;
+    
   }

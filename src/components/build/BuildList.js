@@ -22,7 +22,10 @@ export const BuildList = () => {
     const handleDeleteBuild = (id) => {
         deleteBuild(id)
             .then(() => getAllBuilds().then(setBuilds))
+            .then(() => {
+                navigate("/builds")
     }
+    )}
 
     return (
         <>

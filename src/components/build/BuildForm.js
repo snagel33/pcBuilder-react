@@ -9,18 +9,23 @@ import { NavBar } from '../nav/NavBar';
 export const BuildForm = () => {
     const [build, setBuild] = useState({
         title: "",
-        cpuId: 0,
-        motherboardId: 0,
-        memoryId: 0,
-        storageId: 0,
-        gpuId: 0,
-        caseId: 0,
-        psuId: 0,
-        osId: 0,
-        monitorId: 0,
+        // cpuId: 0,
+        // motherboardId: 0,
+        // memoryId: 0,
+        // storageId: 0,
+        // gpuId: 0,
+        // caseId: 0,
+        // psuId: 0,
+        // osId: 0,
+        // monitorId: 0,
         img: "",
         price: 0,
         rating: 0,
+        parts: (
+            {
+                id: 0,
+            }
+        )
     });
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();

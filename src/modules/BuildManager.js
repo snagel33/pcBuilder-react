@@ -16,9 +16,11 @@ export const getAllBuilds = () => {
 
 export const deleteBuild = (id) => {
     return fetch(`${remoteURL}builds/${id}`, {
-        method: "DELETE"
-    })
-    .then(result => result.json())
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    }).then(result => result.json())
 }
 
 export const addBuild = (build) => {

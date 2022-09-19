@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useNavigate } from "react";
+import { useParams } from "react-router-dom";
+import { getAllBuilds } from "../../modules/BuildManager";
 import "./Build.css";
 
 export const BuildCard = ({ build, handleDeleteBuild }) => {
@@ -13,9 +15,9 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     const [opSys, setOpSys] = useState({});
     const [monitor, setMonitor] = useState({});
 
-    useEffect(() => {
-        console.log(build)
-    }, [build])
+    // useEffect(() => {
+    //     console.log(build)
+    // }, [build])
 
     useEffect(() => {
         (build.parts).map(b => {
@@ -100,13 +102,42 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
 
     // this will add the price of parts in the build to the total price
     const totalPrice = cpu.price + motherboard.price + memory.price + storage.price + gpu.price + pcCase.price + psu.price + opSys.price + monitor.price
-                
+    
+    // const { buildId } = useParams();
+    // const [ build, setBuild ] = useState({});
+
+    // useEffect(() => {
+    //     getAllBuilds()
+    // }, [])
+
+    // const partList = build.parts?.map(part => {
+    //     <div className="part">
+    //         <div className="card-content">
+    //                 <picture><img src={build.img}/></picture>
+    //                 <h3><span className="card-comptitle">{build.title}</span></h3>
+    //                 <p><b>Builder: </b>{build.builder_id}</p>
+    //                 <p><b>CPU: </b>{cpu.name}</p>
+    //                 <p><b>Motherboard: </b>{motherboard.name}</p>
+    //                 <p><b>Memory: </b>{memory.name}</p>
+    //                 <p><b>Storage: </b>{storage.name}</p>
+    //                 <p><b>GPU: </b>{gpu.name}</p>
+    //                 <p><b>Case: </b>{pcCase.name}</p>
+    //                 <p><b>PSU: </b>{psu.name}</p>
+    //                 <p><b>Operating System: </b>{opSys.name}</p>
+    //                 <p><b>Monitor: </b>{monitor.name}</p>
+    //                 <p><b>Price: </b>${totalPrice}.00</p>
+    //                 <p>Rating: {build.rating}</p>
+    //                 <button type="button" onClick={() => handleDeleteBuild(build.id)}>Delete</button>
+    //             </div>
+    //         </div>
+    // })
 
     if (cpu) {
 
     return (
         <>
             <div className="card">
+                {/* {partList} */}
                 <div className="card-content">
                     <picture><img src={build.img}/></picture>
                     <h3><span className="card-comptitle">{build.title}</span></h3>
@@ -121,7 +152,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
                     <p><b>Operating System: </b>{opSys.name}</p>
                     <p><b>Monitor: </b>{monitor.name}</p>
                     <p><b>Price: </b>${totalPrice}.00</p>
-                    {/* <p>Rating: {build.rating}</p> */}
+                    <p>Rating: {build.rating}</p>
                     <button type="button" onClick={() => handleDeleteBuild(build.id)}>Delete</button>
                 </div>
             </div>

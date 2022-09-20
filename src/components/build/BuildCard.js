@@ -15,14 +15,15 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     const [opSys, setOpSys] = useState({});
     const [monitor, setMonitor] = useState({});
 
-    // useEffect(() => {
-    //     console.log(build)
-    // }, [build])
+    useEffect(() => {
+        console.log(build)
+    }, [build])
 
     useEffect(() => {
+        // console.log(build)
         (build.parts).map(b => {
             if (b.partType.id === 1) {
-                console.log("resultCPU", b)
+                // console.log("resultCPU", b)
                 setCpu(b)
             }
         })
@@ -31,7 +32,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     useEffect(() => {
         (build.parts).map(b => {
             if (b.partType.id === 2) {
-                console.log("resultMB", b)
+                // console.log("resultMB", b)
                 setMotherboard(b)
             }
         })
@@ -40,7 +41,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     useEffect(() => {
         (build.parts).map(b => {
             if (b.partType.id === 3) {
-                console.log("resultMemory", b)
+                // console.log("resultMemory", b)
                 setMemory(b)
             }
         })
@@ -49,7 +50,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     useEffect(() => {
         (build.parts).map(b => {
             if (b.partType.id === 4) {
-                console.log("resultStorage", b)
+                // console.log("resultStorage", b)
                 setStorage(b)
             }
         })
@@ -58,7 +59,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     useEffect(() => {
         (build.parts).map(b => {
             if (b.partType.id === 5) {
-                console.log("resultGPU", b)
+                // console.log("resultGPU", b)
                 setGpu(b)
             }
         })
@@ -67,7 +68,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     useEffect(() => {
         (build.parts).map(b => {
             if (b.partType.id === 6) {
-                console.log("resultCase", b)
+                // console.log("resultCase", b)
                 setPcCase(b)
             }
         })
@@ -76,7 +77,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     useEffect(() => {
         (build.parts).map(b => {
             if (b.partType.id === 7) {
-                console.log("resultPSU", b)
+                // console.log("resultPSU", b)
                 setPsu(b)
             }
         })
@@ -85,16 +86,16 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
     useEffect(() => {
         (build.parts).map(b => {
             if (b.partType.id === 8) {
-                console.log("resultOS", b)
+                // console.log("resultOS", b)
                 setOpSys(b)
             }
         })
     }, [])
 
     useEffect(() => {
-        (build.parts).map(b => {
+        build.parts.map(b => {
             if (b.partType.id === 9) {
-                console.log("resultMonitor", b)
+                // console.log("resultMonitor", b)
                 setMonitor(b)
             }
         })
@@ -152,7 +153,7 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
                     <p><b>Operating System: </b>{opSys.name}</p>
                     <p><b>Monitor: </b>{monitor.name}</p>
                     <p><b>Price: </b>${totalPrice}.00</p>
-                    <p>Rating: {build.rating}</p>
+                    {/* <p>Rating: {build.rating}</p> */}
                     <button type="button" onClick={() => handleDeleteBuild(build.id)}>Delete</button>
                 </div>
             </div>

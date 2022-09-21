@@ -6,7 +6,7 @@ export const BuilderCard = ({ builder }) => {
     const user = useRef();
 
     return (
-        <div className="card">
+        <div className="card_builder">
             <div className="card-content">
                 <h3><span className="card-username">{builder.userName}</span></h3>
                 <picture><img src={builder.img}/></picture>

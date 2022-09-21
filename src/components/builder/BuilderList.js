@@ -57,7 +57,7 @@ export const BuilderList = () => {
         <section className="navBar">
             <NavBar />
         </section>
-        <div className="card">
+        <div className="card_builder">
             <div className="card-content">
                 <h3><span className="card-username">{builders.userName}</span></h3>
                 <picture><img src={builders.img}/></picture>

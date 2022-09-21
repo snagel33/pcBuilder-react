@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { deleteBuild, getAllBuilds, getBuildById } from "../../modules/BuildManager";
 import { NavBar } from "../nav/NavBar";

@@ -5,6 +5,9 @@ import { getAllParts, getPartByPartTypeId } from '../../modules/PartManager';
 import './BuildForm.css'
 import { PartCard } from '../part/PartCard';
 import { NavBar } from '../nav/NavBar';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { Container, Row } from 'react-bootstrap';
 
 export const BuildForm = () => {
     const [build, setBuild] = useState({
@@ -77,7 +80,7 @@ export const BuildForm = () => {
         <section className="navBar">
             <NavBar />
         </section>
-        <form className='userBuildForm'>
+        {/* <form className='userBuildForm'>
             <h2 className='userBuildForm__title'>Create a New Computer Build</h2>
             <fieldset>
                 <div className='form-group'>
@@ -216,7 +219,102 @@ export const BuildForm = () => {
                         Save Computer Build
                 </button>
             </fieldset>
-        </form>
-        </>
+        </form> */}
+
+        <Form>
+            <Form.Group className='mb-3'>
+                <Form.Label>Build Title</Form.Label>
+                <Form.Control type='text' id='title' placeholder='Build Title' value={build.title} onChange={handleControlledInputChange} />
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>CPU</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.cpu} name="cpu" id="cpu_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select CPU</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>Motherboard</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.motherboard} name="motherboard" id="motherboard_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select Motherboard</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>Memory</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.memory} name="memory" id="memory_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select Memory</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>Storage</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.storage} name="storage" id="storage_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select Storage</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>GPU</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.gpu} name="gpu" id="gpu_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select GPU</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>Case</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.case} name="case" id="case_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select Case</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>PSU</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.psu} name="psu" id="psu_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select PSU</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>Operating System</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.os} name="os" id="os_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select OS</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>Monitor</Form.Label>
+                <Form.Select aria-label="Default select example" value={build.monitor} name="monitor" id="monitor_Id" onChange={handleControlledInputChange}>
+                    <option value="">Select Monitor</option>
+                    {parts.map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))}
+                </Form.Select>
+            </Form.Group>
+            <Form.Group className='mb-3'>
+                <Form.Label>Image Link</Form.Label>
+                <Form.Control type='text' id="img" placeholder='Image Link' value={build.img} onChange={handleControlledInputChange} />
+            </Form.Group>
+            <Button variant='primary' type='submit' onClick={handleClickSaveUserBuild}>
+                Save Computer Build
+            </Button>
+        </Form>
+    </>
     );
 }

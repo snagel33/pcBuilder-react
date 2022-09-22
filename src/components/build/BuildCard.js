@@ -168,8 +168,8 @@ export const BuildCard = ({ build, handleDeleteBuild }) => {
         <>
         <div className="buildCard">
             <Container className="buildContainer">
-                <Card border='secondary' style={{ width: '20rem' }}>
-                    <Card.Img variant="top" src={build.img}/>
+                <Card style={{ width: '20rem' }}>
+                    <Card.Img variant="top" src={build.img} style={{ height: '15rem' }}/>
                     <Card.Body>
                         <Card.Title>{build.title}</Card.Title>
                     </Card.Body>

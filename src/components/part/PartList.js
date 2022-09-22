@@ -4,6 +4,8 @@ import { getAllParts, getPartById, getPartByPartTypeId, getPartTypes } from "../
 import { PartCard } from "./PartCard";
 import { NavBar } from "../nav/NavBar";
 import './PartList.css';
+import { Button, Card, Container } from "react-bootstrap";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export const PartList = () => {
     const [parts, setParts] = useState([]);
@@ -78,20 +80,18 @@ export const PartList = () => {
                     </select>
                 </div>
             {/* </fieldset> */}
-            <button type="button"
+            <Button type="button"
                 className="btn-parts"
                 onClick={() => navigate("/parts/create")}>
                 Add New Part
-            </button>
+            </Button>
         </section>
         <section className="filtered_view">
-            <h2>FILTER VIEW (PLACEHOLDER)</h2>
             <div className="parts">
                 {filteredParts.map(part => <PartCard key={part.id} part={part} setReset={setReset} />)}
             </div>
         </section>
         <section className="all_parts">
-            <h2>ALL PARTS (PLACEHOLDER)</h2>
             <div className="parts">
                 {parts.map(part => <PartCard key={part.id} part={part} />)}
             </div>

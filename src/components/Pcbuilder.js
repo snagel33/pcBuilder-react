@@ -16,6 +16,7 @@ import { PartEditForm } from "./part/PartEditForm";
 import { BuildForm } from "./build/BuildForm";
 import { BuilderEditForm } from "./builder/BuilderEditForm";
 import { PrivateRoutes } from "./auth/PrivateRoute";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Pcbuilder = () => {
     const [ token, setTokenState ] = useState(localStorage.getItem("lu_token"));

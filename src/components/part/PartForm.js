@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { addPart, createPart, getPartTypes } from "../../modules/PartManager";
 import { getAllPartTypes } from "../../modules/PartTypeManager";
@@ -38,7 +39,7 @@ export const PartForm = () => {
             <NavBar />
         </section>
         <form className="partForm">
-            <h2 className="partForm__title">Create New Part</h2>
+            {/* <h2 className="partForm__title">Create New Part</h2> */}
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="partTypeId">Part Type: </label>
@@ -78,7 +79,7 @@ export const PartForm = () => {
                     <input type="text" id="price" onChange={changePartState} required autoFocus className="form-control" placeholder="Price" value={currentPart.price} />
                 </div>
             </fieldset>
-            <button type="submit"
+            <Button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
 
@@ -94,7 +95,7 @@ export const PartForm = () => {
                     createPart(part)
                         .then(() => history("/parts"))
                 }}
-                className="btn btn-primary">Create</button>
+                className="partCreate">Create</Button>
         </form>
         </>
     );

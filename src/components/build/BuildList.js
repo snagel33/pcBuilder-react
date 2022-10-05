@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { deleteBuild, getAllBuilds, getBuildById } from "../../modules/BuildManager";
 import { NavBar } from "../nav/NavBar";
@@ -33,11 +34,11 @@ export const BuildList = () => {
             <NavBar />
         </section>
         <section className="section-content">
-            <button type="button"
+            <Button type="button"
                 className="btn-builds"
                 onClick={() => navigate("/builds/create")}>
                 Create New Build
-            </button>
+            </Button>
         </section>
         <div className="build-container-cards">
             {builds.map(build => 

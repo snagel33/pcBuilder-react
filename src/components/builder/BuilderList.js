@@ -3,6 +3,8 @@ import { deleteBuilder, getAllBuilders, getBuilderById } from "../../modules/Bui
 import { BuilderCard } from "./BuilderCard";
 import { NavBar } from "../nav/NavBar";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export const BuilderList = () => {
     
@@ -68,10 +70,17 @@ export const BuilderList = () => {
                     <button>Details</button>
                 </Link> */}
                 {/* <button type="button" onClick={() => handleDeleteBuilder(builder.id)}>Delete</button> */}
-                <Link to={`/builders/${builders.id}/edit`}><button className="btn btn-primary">Edit</button></Link>
+                <Link to={`/builders/${builders.id}/edit`}><Button className="btn btn-primary">Edit</Button></Link>
             </div>
         </div>
         </>
+
+        // <>
+        //     <NavBar />
+        //     <Card>
+        //         <Card.header>{builders.userName}</Card.header>
+        //     </Card>
+        // </>
     );
     }
 }

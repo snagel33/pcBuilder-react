@@ -26,18 +26,18 @@ export const NavBar = () => {
         //         <li className="navbar_item">
         //             <Link className="navbar_link" to="/builders">Profile</Link>
         //         </li>     
-        
         <Navbar bg="primary" variant="dark" fixed="top">
+            
             <Container className="navbar_custom">
-                {/* <Navbar.Brand href="/">
-                    <Image src={Logo} roundedCircle width="auto" height="300"/>
-                </Navbar.Brand> */}
+                <Navbar.Brand href="/">
+                    <Image src={Logo} roundedCircle width="auto" height="250"/>
+                </Navbar.Brand>
                 <Stack direction="horizontal" gap={3}> 
-                    <Navbar.Brand href="/">PcBuilder.com</Navbar.Brand>
+                    {/* <Navbar.Brand size="lg" href="/">PcBuilder.com</Navbar.Brand> */}
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/builds">User Builds</Nav.Link>
-                        <Nav.Link href="/parts">Parts</Nav.Link>
+                        {/* <Nav.Link href="/">Home</Nav.Link> */}
+                        <Nav.Link href="/builds">Your Computer Builds</Nav.Link>
+                        <Nav.Link href="/parts">Parts List</Nav.Link>
                         <Nav.Link href="/builders">Profile</Nav.Link>
                     </Nav>
                 </Stack>

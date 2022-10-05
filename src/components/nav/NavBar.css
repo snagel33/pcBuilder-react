@@ -1,13 +1,16 @@
 .navbar_item {
-    padding: 0 0.5em;
+    padding: 6rem;
     list-style: none;
     }
 
 .Nav.Link {
-    margin: 1000;
+    /* margin: 1000; */
     }
 
 .navbar_custom {
-    height: 90px;
+    height: 40px;
     }
 
+.Logo {
+    display: flex;
+}
